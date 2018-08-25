@@ -13,7 +13,7 @@ Basket.prototype.render = function(){
     );
 }
 Basket.prototype.get = function(){
-    $.getJSON({
+    $.get({
         url: '/basket/get/',
         context: this,
         data: '{"id_user" :'+ this.userId +'}',
