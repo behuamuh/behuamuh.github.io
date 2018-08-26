@@ -46,7 +46,8 @@ Form.prototype.render = function () {
                         console.log(data);
                         for (var i = 0; i < data.length; i++){
                             new Review(data[i].id_comment, data[i].text);
-                        } 
+                        }
+                        $(this).hide();
                     } catch (e) {
                         alert(e.message);
                     }
