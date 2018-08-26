@@ -3,7 +3,24 @@ function Review(id, message) {
     this.id = 'review' + id;
     this.message = message;
     this.allowed = false;
-    this.render();
+
+    $.get({   //ajax
+        url: './add.json',
+        //method: 'POST',
+        context: this,
+        data: { id_user : this.id,
+                text: this.message
+                },
+        dataType: 'json',
+        success: function(data) {
+            if (data.result == 0){
+                alert(data.error_message);
+            } else {
+                console.log(data.userMessage);
+                this.render();
+            }
+        }
+    });
 }
 
 Review.prototype = Object.create(Container.prototype);
@@ -21,9 +38,24 @@ Review.prototype.render = function () {
         var allow = $('<button/>', {
             text: 'Одобрить'
             , click: function () {
-                self.allowed = true;
-                self.remove();
-                self.render();
+                $.get({   //ajax
+                    url: './submit.json',
+                    //method: 'POST',
+                    context: self,
+                    data: { id_comment : this.id,
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.result == 0){
+                            alert(data.error_message);
+                        } else {
+                            self.allowed = true;
+                            self.remove();
+                            self.render();
+                        }
+                    }
+                });
+
             }
         });
         var del = $('<button/>', {
@@ -38,6 +70,20 @@ Review.prototype.render = function () {
     $review.append(div);
 };
 Review.prototype.remove = function () {
-    //var $review = $('#review');
-    $('#' + this.id).detach();
+    $.get({   //ajax
+        url: './delete.json',
+        //method: 'POST',
+        context: this,
+        data: { id_comment : this.id,
+        },
+        dataType: 'json',
+        success: function(data) {
+            if (data.result == 0){
+                alert(data.error_message);
+            } else {
+                $('#' + this.id).detach();
+            }
+        }
+    });
+
 }
