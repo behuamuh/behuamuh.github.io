@@ -11,21 +11,31 @@ Form.prototype.render = function () {
     var count = 0;
     var review = $('#review');
     review.html('');
-    var name = $('<input/>', {
+    var form = $('<form/>');
+
+
+    var name = $('<div/>', {class: "form-group"}).append(
+        $('<input/>', {
+        class:"form-control",
         type: 'text'
         , placeholder: 'Your name'
         , id: this.id + 'name'
-    });
-    var email = $('<input/>', {
+    }));
+    var email = $('<div/>', {class: "form-group"}).append(
+        $('<input/>', {
+        class:"form-control",
         type: 'email'
         , placeholder: 'Your email'
         , id: this.id + 'email'
-    });
-    var message = $('<textarea/>', {
+    }));
+    var message = $('<div/>', {class: "form-group"}).append(
+        $('<textarea/>', {
+        class:"form-control",
         id: this.id + 'message'
         , placeholder: 'Your review'
-        , });
+        , }));
     var button = $('<button/>', {
+        class: "btn btn-dark",
         id: this.id + 'button'
         , text: 'Оставить отзыв'
         , click: function () {
@@ -33,6 +43,7 @@ Form.prototype.render = function () {
         }
     });
     var buttonOldReview = $('<button/>', {
+        class: "btn btn-dark",
         id: this.id + 'oldReview'
         , text: 'Загрузить отзывы'
         , click: function () {
@@ -46,7 +57,8 @@ Form.prototype.render = function () {
                         console.log(data);
                         for (var i = 0; i < data.length; i++){
                             new Review(data[i].id_comment, data[i].text);
-                        } 
+                        }
+                        $(this).hide();
                     } catch (e) {
                         alert(e.message);
                     }

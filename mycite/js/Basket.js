@@ -11,13 +11,15 @@ Basket.prototype.constructor = Basket;
 Basket.prototype.render = function(){
     var self = this;
     var $basket = $('#'+ this.id);
-    $basket.html('Товаров в корзине : ' + this.items.length + '<br>' + 'На сумму : ' + this.amount + '<hr>'
+    $basket.html('<p>Товаров в корзине : ' + this.items.length + '<p/>' + '<p>На сумму : ' + this.amount + '<p/>'
     );
     var buttonBuy = $('<button/>',{
+        class: 'btn btn-dark',
         id: this.id + 'button',
         text: 'Перейти'
     });
     var buttonClr = $('<button/>',{
+        class: 'btn btn-dark',
         id: this.id + 'button',
         text: 'Очистить'
     });
@@ -26,6 +28,7 @@ Basket.prototype.render = function(){
     });
     $basket.append(buttonBuy);
     $basket.append(buttonClr);
+    $basket.addClass('mt-4 mb-4')
 
 };
 Basket.prototype.get = function(){

@@ -12,15 +12,22 @@ Goods.prototype.constructor = Goods;
 Goods.prototype.render = function () {
     var self = this;
     var good = $('<div/>',{
-        id: this.id,
-        text: this.name + ' -  Цена: ' + this.price
+        id: this.id
     });
-    good.append($('<br>'));
+    good.append($('<h3/>',{
+        text: this.name
+    }));
+    good.append($('<p/>',{
+        text: 'Цена: ' + this.price
+    }));
+
     var input = $('<input/>',{
+        class:"form-control",
         type: 'text',
         id: this.id + 'input'
     });
     var button = $('<button/>',{
+        class: 'btn btn-dark',
         type: 'text',
         id: this.id + 'button',
         text: 'В корзину'
@@ -38,6 +45,6 @@ Goods.prototype.render = function () {
         }, quantity)
         input.val('');
     });
-    good.append(input,$('<br>'), button, $('<hr>'));
+    good.append(input,$('<br>'), button, $('<br>'));
     $('#goods').append(good);
 };

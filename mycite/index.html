@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Review</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="slick/slick.css">
     <link rel="stylesheet" href="slick/slick-theme.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <style>
-        body{
-            background-color: #9fcdff ;
-        }
-    </style>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -30,13 +26,14 @@
 <div class="container">
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-            <img src="img/blocks.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="images/smartphones-624x416.jpg" width="60" height="30" class="d-inline-block align-top" alt="">
             Интернет магазин
         </a>
     </nav>
+    <!--      basket        -->
+
     <div id="basket"></div>
-    <br>
-    <hr>
+
     <div class="multiple-items" id="goods"></div>
 
     <!--      review        -->
@@ -81,32 +78,19 @@
     </div>
 </div>
 
-    <script>
-        var myBasket = new Basket(1);
-        myBasket.render();
-        myBasket.get();
-        myGood1 = new Goods('1', 'Sony xperia Z', 1000, myBasket);
-        myGood1.render();
-        myGood2 = new Goods('2', 'iPhone 6', 600, myBasket);
-        myGood2.render();
-        myGood1 = new Goods('3', 'Samsung s9', 1200, myBasket);
-        myGood1.render();
-        myGood2 = new Goods('4', 'iPhone 7', 1200, myBasket);
-        myGood2.render();
-        myGood1 = new Goods('5', 'Alkatel', 100, myBasket);
-        myGood1.render();
-        myGood2 = new Goods('6', 'iPhone X', 2000, myBasket);
-        myGood2.render();
-        var myForm = new Form();
-        myForm.render();
-        $('.multiple-items').slick({
-            autoplay: true,
-            autoplaySpeed: 2000,
-            dots: true,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3,
-        });
-    </script>
+<!-- Footer -->
+
+<footer class="page-footer font-small dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="https://behuamuh.github.io/mycite/"> behuamuh.github.io</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+    <script src="js/index.js"></script>
 </body>
 </html>

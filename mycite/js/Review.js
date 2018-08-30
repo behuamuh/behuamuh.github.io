@@ -36,6 +36,7 @@ Review.prototype.render = function () {
         div.append(message, $('<hr>'));
     } else {
         var allow = $('<button/>', {
+            class: "btn btn-dark",
             text: 'Одобрить'
             , click: function () {
                 $.get({   //ajax
@@ -59,6 +60,7 @@ Review.prototype.render = function () {
             }
         });
         var del = $('<button/>', {
+            class: "btn btn-dark",
             text: 'Удалить'
             , click: function () {
                 self.remove();
